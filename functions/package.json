@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "firebase-functions": "^7.0.0",
+    "mercadopago": "^2.11.0"
+  }
+}

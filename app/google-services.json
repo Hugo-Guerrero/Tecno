@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1053556096328",
+    "project_id": "tecno-ea191",
+    "storage_bucket": "tecno-ea191.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053556096328:android:04d58b7a1eb94a6c95c77d",
+        "android_client_info": {
+          "package_name": "com.hugoguerrero.tecno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053556096328-hmv1bgcurl3hbpfbvc4hr0vhuqrdejl8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hugoguerrero.tecno",
+            "certificate_hash": "9aed7a630d09f1c33c900b13fb0eadf86e0b2c57"
+          }
+        },
+        {
+          "client_id": "1053556096328-cbb0gcu8g2ugua6avh1gmaa1mjhpd4n6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMeQ8ateMCWc9R1vAQ7-jw0qMVnFdeH4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053556096328-cbb0gcu8g2ugua6avh1gmaa1mjhpd4n6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
