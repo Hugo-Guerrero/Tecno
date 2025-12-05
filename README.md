@@ -7478,13 +7478,20 @@ ________________________________________
 📄 Licencia
 
 ```
-Este proyecto está bajo la Licencia MIT. Ver el archivo LICENSE para más detalles.
-
-MIT License
+Licencia de Visualización Educativa
 
 Copyright (c) 2025 Hugo Guerrero
 
-Permission is hereby granted...
+Se concede el permiso de visualizar y usar el código de este proyecto únicamente con fines educativos.
+Quedan prohibidas las siguientes acciones:
+
+Modificar el código fuente.
+
+Distribuir versiones modificadas del código.
+
+Usar el código con fines comerciales.
+
+Para solicitar permisos adicionales, contactar al autor.
 ________________________________________
 👤 Autor
 •	Desarrollador: Hugo Guerrero 
