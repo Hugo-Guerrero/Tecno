@@ -7478,20 +7478,20 @@ ________________________________________
 📄 Licencia
 
 ```
-Licencia de Visualización Educativa
+LICENCIA PARA PROYECTO ESCOLAR
 
 Copyright (c) 2025 Hugo Guerrero
 
-Se concede el permiso de visualizar y usar el código de este proyecto únicamente con fines educativos.
-Quedan prohibidas las siguientes acciones:
+Este código se comparte únicamente con fines de visualización y evaluación académica.
+Queda estrictamente prohibido:
 
-Modificar el código fuente.
+- Modificar, distribuir o publicar este código
+- Usar este código en otros proyectos
+- Realizar forks con modificaciones
 
-Distribuir versiones modificadas del código.
+Este proyecto es parte de un trabajo escolar y no está abierto a contribuciones externas.
 
-Usar el código con fines comerciales.
-
-Para solicitar permisos adicionales, contactar al autor.
+Para cualquier consulta sobre el uso de este código, contactar a: hugoguerrerocampo217@gmail.com
 ________________________________________
 👤 Autor
 •	Desarrollador: Hugo Guerrero 
