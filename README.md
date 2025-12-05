@@ -138,7 +138,7 @@ plugins {
 }
 ```
 Configuracion Build.gradle.kts(Module)
-```
+```kotlin
 import java.io.FileInputStream
 import java.util.Properties
 
@@ -275,7 +275,7 @@ dependencies {
 
 ```
 Configuracion libs.version.toml
-```
+```toml
 [versions]
 # Android Gradle Plugin y Kotlin
 agp = "8.13.1"
