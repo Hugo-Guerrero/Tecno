@@ -124,6 +124,250 @@ com/hugoguerrero/tecno/
 └── 📁 docs/                      # Documentación
     └── screenshots/              # Capturas de pantalla
 ```
+Configuracion Build.gradle.kts(Project)
+```
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    // La siguiente línea se elimina porque no es necesaria y causa conflictos
+    // alias(libs.plugins.kotlin.compose) apply false 
+    alias(libs.plugins.hilt) apply false
+    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.google.services) apply false
+}
+```
+Configuracion Build.gradle.kts(Module)
+```
+import java.io.FileInputStream
+import java.util.Properties
+
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.compose.compiler)
+}
+
+// Leer propiedades locales
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(FileInputStream(localPropertiesFile))
+}
+
+android {
+    namespace = "com.hugoguerrero.tecno"
+    compileSdk = 36
+
+    signingConfigs {
+        create("release") {
+            keyAlias = localProperties.getProperty("keyAlias")
+            keyPassword = localProperties.getProperty("keyPassword")
+            storeFile = file(localProperties.getProperty("storeFile"))
+            storePassword = localProperties.getProperty("storePassword")
+        }
+    }
+
+    defaultConfig {
+        applicationId = "com.hugoguerrero.tecno"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.getByName("release")
+        }
+    }
+
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.11" // Versión compatible
+    }
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    packaging {
+        resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
+    }
+}
+
+dependencies {
+
+    // --- Compose BOM ---
+    implementation(platform(libs.androidx.compose.bom))
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+
+    // Navigation Compose
+    implementation(libs.androidx.compose.navigation)
+
+    // --- Firebase BOM ---
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.firebase.messaging.ktx)
+    implementation(libs.firebase.functions.ktx)
+    implementation(libs.firebase.appcheck.ktx)
+    implementation(libs.firebase.appcheck.playintegrity)
+    debugImplementation(libs.firebase.appcheck.debug) // <-- AÑADIDO
+
+    // Firestore Offline Persistence
+    implementation(libs.coroutines.play.services)
+
+    // --- Hilt + KSP ---
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.ui.text)
+    ksp(libs.hilt.compiler)
+
+    // ... tus otras dependencias (Compose, Firebase, Hilt, etc.)// AÑADE ESTA LÍNEA para solucionar el error de reflexión
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.9.24") // Asegúrate de que la versión coincida con la de tu proyecto
+
+    // App Check
+    implementation("com.google.firebase:firebase-appcheck-debug")
+
+
+    // Debug tools (Referencias corregidas)
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // --- TESTING ---
+    testImplementation(libs.junit)
+
+    //Icons
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+
+    implementation("io.coil-kt:coil-compose:2.7.0")
+
+    //Google
+    implementation("com.google.android.gms:play-services-auth:21.4.0")
+
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+}
+
+```
+Configuracion libs.version.toml
+```
+[versions]
+# Android Gradle Plugin y Kotlin
+agp = "8.13.1"
+kotlin = "2.2.21"
+ksp = "2.2.21-2.0.4"
+
+# Compose
+activityCompose = "1.12.0"
+composeBom = "2025.11.01"
+composeCompiler = "2.0.0-Beta02"
+navigationCompose = "2.9.6"
+foundation = "1.9.5"
+
+# AndroidX Core
+coreKtx = "1.17.0"
+lifecycleRuntimeKtx = "2.10.0"
+
+# Hilt
+hilt = "2.57.2"
+hiltNavigationCompose = "1.3.0"
+
+# Firebase
+firebaseBom = "33.0.0"
+firebaseFunctions = "21.2.1"
+firebaseAppCheck = "18.0.0"
+
+# Google y Coroutines
+playServicesAuth = "21.4.0"
+coroutines = "1.10.2"
+
+# Testing
+junit = "4.13.2"
+junitExt = "1.3.0"
+espresso = "3.7.0"
+
+[libraries]
+# AndroidX & Compose
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
+androidx-compose-ui-text = { group = "androidx.compose.ui", name = "ui-text" }
+androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "foundation" }
+
+# Hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+# Firebase
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx" }
+firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx" }
+firebase-messaging-ktx = { group = "com.google.firebase", name = "firebase-messaging-ktx" }
+firebase-functions-ktx = { group = "com.google.firebase", name = "firebase-functions-ktx", version.ref = "firebaseFunctions" }
+firebase-appcheck-ktx = { group = "com.google.firebase", name = "firebase-appcheck-ktx", version.ref = "firebaseAppCheck" }
+firebase-appcheck-playintegrity = { group = "com.google.firebase", name = "firebase-appcheck-playintegrity", version.ref = "firebaseAppCheck" }
+firebase-appcheck-debug = { group = "com.google.firebase", name = "firebase-appcheck-debug", version.ref = "firebaseAppCheck" }
+
+
+# Google & Coroutines
+play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
+coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutines" }
+
+# Debug Tools
+debug-androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+debug-androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+
+# Testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitExt" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+# ... otros plugins
+# --- AÑADE ESTA LÍNEA ---
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+google-services = { id = "com.google.gms.google-services", version = "4.4.4" }
+
+```
 
 ```
 
