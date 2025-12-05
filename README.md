@@ -7165,13 +7165,18 @@ class TecnoApp : Application() {
         }
     }
 }
+
 ```
 🚀 Cómo Ejecutar
+```
+
 Prerrequisitos
 •	Android Studio Flamingo (2022.2.1) o superior
 •	JDK 17+
 •	Dispositivo Android con API 24+ o emulador
+```
 Pasos de Instalación
+```
 1.	Clona el repositorio:
 bash
 git clone https://github.com/Hugo-Guerrero/Tecno.git
@@ -7183,22 +7188,23 @@ o	Descarga google-services.json y colócalo en app/
 3.	Configura las credenciales (opcional para release):
 o	Copia local.properties.example a local.properties
 o	Configura tus claves de firma:
+```
 properties
+```
 storeFile=../keystore/tecno.jks
 storePassword=tu_password
 keyAlias=tecno
 keyPassword=tu_password
+
 4.	Ejecuta la aplicación:
 o	Abre el proyecto en Android Studio
 o	Haz clic en Run ▶️
 o	Selecciona un dispositivo o emulador
-Notas para la entrega (Actividad 1)
-•	✅ README.md completo (este archivo)
-•	✅ Código fuente con comentarios KDoc (varias muestras arriba)
-•	✅ Carpeta docs/screenshots/ con al menos 3 imágenes
-•	✅ .gitignore configurado (ya presente en repo)
+
 ________________________________________
+```
 🤝 Contribuir
+```
 1.	Haz fork del repositorio
 2.	Crea una rama para tu feature:
 bash
@@ -7215,7 +7221,10 @@ Guía de estilo
 •	Sigue las convenciones de código Kotlin
 •	Mantén las pruebas unitarias actualizadas
 ________________________________________
+```
 📄 Licencia
+
+```
 Este proyecto está bajo la Licencia MIT. Ver el archivo LICENSE para más detalles.
 text
 MIT License
@@ -7225,66 +7234,11 @@ Copyright (c) 2025 Hugo Guerrero
 Permission is hereby granted...
 ________________________________________
 👤 Autor
-•	Profesor: Tacho (mención en el material de apoyo)
+•	Desarrollador: Hugo Guerrero 
 •	Autor del repo: Hugo Guerrero
-•	Colaborador: Jorge Carranco
+•	Colaborador: Jorge Alberto
 ________________________________________
-🔗 Archivos de Configuración Detectados
-.gitignore (raíz)
-gitignore
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
-app/.gitignore
-gitignore
-/build
-app/build.gradle.kts (extracto)
-kotlin
-plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.google.services)
-}
 
-android {
-    namespace = "com.hugoguerrero.tecno"
-    compileSdk = 36
-
-    defaultConfig {
-        applicationId = "com.hugoguerrero.tecno"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-    }
-
-    buildFeatures {
-        compose = true
-    }
-}
-
-dependencies {
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-}
 ```
 
 
