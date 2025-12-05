@@ -5,7 +5,9 @@ Tecno Ciencia - Manual Completo
 Versión: 1.0
 Paquete: com.hugoguerrero.tecno
 📋 Resumen
-Tecno Ciencia es una aplicación para subir, documentar y compartir proyectos tecnológicos y científicos. Este README sigue la "Anatomía de un README.md Perfecto" y contiene: descripción del proyecto, arquitectura, código documentado (KDoc), pasos para ejecutar, y espacio para tus capturas de pantalla en docs/screenshots/.
+Tecno Ciencia es una aplicación para subir, documentar y compartir proyectos tecnológicos y científicos. Este README sigue la
+"Anatomía de un README.md Perfecto" y contiene: descripción del proyecto, arquitectura, código documentado (KDoc), pasos para
+ejecutar, y espacio para tus capturas de pantalla en docs/screenshots/.
 ________________________________________
 📖 Tabla de Contenidos
 •	Introducción
