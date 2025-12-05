@@ -23,7 +23,9 @@ ________________________________________
 •	Licencia
 ________________________________________
 🎯 Introducción
-Tecno Ciencia es un espacio para que desarrolladores y estudiantes suban sus proyectos, obtengan retroalimentación y colaboren. Este README contiene ejemplos de código con KDoc, la estructura del proyecto y referencias a las capturas que debes subir en docs/screenshots/.
+Tecno Ciencia es un espacio para que desarrolladores y estudiantes suban sus proyectos, obtengan retroalimentación y colaboren.
+Este README contiene ejemplos de código con KDoc, la estructura del proyecto y referencias a las capturas que debes subir
+en docs/screenshots/.
 ________________________________________
 📊 Estado del Proyecto
 •	✅ Plantillas y estructura listas en el repositorio.
@@ -32,7 +34,8 @@ ________________________________________
 •	📸 Añade tus capturas en docs/screenshots/ para completar la entrega.
 ________________________________________
 📱 ¿Qué es la App?
-Tecno Ciencia permite crear proyectos, subir documentos, organizar por categorías, contribuir y reportar incidencias. Está pensada para estudiantes y equipos pequeños que quieran compartir avances y recibir feedback.
+Tecno Ciencia permite crear proyectos, subir documentos, organizar por categorías, contribuir y reportar incidencias.
+Está pensada para estudiantes y equipos pequeños que quieran compartir avances y recibir feedback.
 Características principales:
 •	Autenticación con Firebase (email/Google)
 •	CRUD completo de proyectos
@@ -4632,15 +4635,18 @@ fun CreditsScreen(navController: NavController) {
             item {
                 CreditProfile(
                     name = "Hugo Emiliano Guerrero Campos",
-                    bio = "Desarrollador de la aplicación Tecno-Ciencia, apasionado por la tecnología y la innovación. Estudiante de Ingeniería en Desarrollo de Software Multiplataforma.",
-                    photoUrl = "https://firebasestorage.googleapis.com/v0/b/tecno-ea191.firebasestorage.app/o/project_credits%2Fhugo.png?alt=media&token=b4f4d585-6a49-45c0-9cdc-4068832833fe"
+                    bio = "Desarrollador de la aplicación Tecno-Ciencia, apasionado por la tecnología y la innovación.
+                    Estudiante de Ingeniería en Desarrollo de Software Multiplataforma.",
+                    photoUrl = "https://firebasestorage.googleapis.com/v0/b/tecno-ea191.firebasestorage.app/o/project
+                     _credits%2Fhugo.png?alt=media&token=b4f4d585-6a49-45c0-9cdc-4068832833fe"
                 )
             }
             item {
                 CreditProfile(
                     name = "Jorge Alberto Carranco Ramírez",
                     bio = "Colaborador y tester de la aplicación. Estudiante de Ingeniero en Desarrollo de Software Multiplataforma.",
-                    photoUrl = "https://firebasestorage.googleapis.com/v0/b/tecno-ea191.firebasestorage.app/o/project_credits%2Fjorge.jpg?alt=media&token=b0c82b42-c5ee-4234-b8a2-bc2d81b9a1c8"
+                    photoUrl = "https://firebasestorage.googleapis.com/v0/b/tecno-ea191.firebasestorage.app/o/project_
+                    credits%2Fjorge.jpg?alt=media&token=b0c82b42-c5ee-4234-b8a2-bc2d81b9a1c8"
                 )
             }
         }
@@ -5384,7 +5390,8 @@ private fun PublicProfileContent(modifier: Modifier, state: PublicProfileState, 
                 item {
                     PublicProfileHeader(profile = state.userProfile)
                     Spacer(modifier = Modifier.height(24.dp))
-                    Text("Proyectos de ${state.userProfile.displayName}", style = MaterialTheme.typography.titleLarge, modifier = Modifier.padding(horizontal = 16.dp))
+                    Text("Proyectos de ${state.userProfile.displayName}", style = MaterialTheme.typography.titleLarge,
+                     modifier = Modifier.padding(horizontal = 16.dp))
                     Divider(modifier = Modifier.padding(vertical = 8.dp))
                 }
                 if (state.projects.isEmpty()) {
