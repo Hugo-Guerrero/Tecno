@@ -54,7 +54,7 @@ Flujo de la Aplicación:
 6.	Reporte de incidencias para moderación
 Equipo:
 •	Hugo Guerrero - Desarrollador principal
-•	Jorge Alberto - Desarrrollador y Colaborador
+•	Jorge Alberto (betoblack) - Desarrrollador y Colaborador
 ________________________________________
 🛠 Tecnologías Usadas
 •	Lenguaje: Kotlin 1.9.0
