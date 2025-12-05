@@ -7235,7 +7235,7 @@ ________________________________________
 
 ```
 Este proyecto está bajo la Licencia MIT. Ver el archivo LICENSE para más detalles.
-text
+
 MIT License
 
 Copyright (c) 2025 Hugo Guerrero
